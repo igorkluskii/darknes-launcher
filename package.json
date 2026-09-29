@@ -1,0 +1,83 @@
+{
+  "name": "darknes-launcher",
+  "version": "0.1.0",
+  "description": "Modern Minecraft launcher and instance manager",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": "igor_kluski",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "axios": "^1.6.2",
+    "zustand": "^4.4.1",
+    "lucide-react": "^0.294.0",
+    "electron-squirrel-startup": "^1.1.2"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0",
+    "typescript": "^5.3.3",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@types/node": "^20.10.0",
+    "@types/electron-devtools-installer": "^2.2.2",
+    "electron-devtools-installer": "^3.2.0"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+    "build": "npm run react-build && npm run electron-build",
+    "electron-build": "electron-builder --win --publish=never",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "build": {
+    "appId": "com.darknes.launcher",
+    "productName": "Darknes Launcher",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "public/electron.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "certificateFile": null,
+      "certificatePassword": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
